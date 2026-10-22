@@ -1,3 +1,4 @@
+
 # Render Blueprint for EarthVein
 # One web service serves both the API and built frontend.
 
@@ -28,20 +29,25 @@ services:
       - key: MONGO_DB
         value: earthvein
 
-      # Admin: Sundram
+      # Admin account
       - key: ADMIN_EMAIL
         value: sundramyadav751@gmail.com
 
       - key: ADMIN_PASSWORD
         sync: false
 
-      # Control Panel: Yugnsh
+      # Control Panel accounts
       - key: CONTROL_EMAIL
         value: yugnshsethi46@gmail.com
 
       - key: CONTROL_PASSWORD
         sync: false
 
-      # No public demo accounts
+      # Disable public demo accounts for deployment security
       - key: SEED_DEMO
         value: "false"
+
+      # Google Sign-In Client ID
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+
