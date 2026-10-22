@@ -1,33 +1,53 @@
-# Render Blueprint: one web service that serves both the API and the built frontend.
-# New > Blueprint, point it at this repository, then fill in the values marked sync: false.
+
+# Render Blueprint for EarthVein
+# One web service serves both the API and built frontend.
+
 services:
   - type: web
     name: earthvein
     runtime: python
     plan: free
     rootDir: backend
+
     buildCommand: pip install -r requirements.txt
+
     startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 120
+
     healthCheckPath: /api/health
     autoDeploy: true
+
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.3
+
       - key: SECRET_KEY
         generateValue: true
+
       - key: MONGO_URI
-        sync: false            # MongoDB Atlas connection string
+        sync: false
+
       - key: MONGO_DB
         value: earthvein
+
+      # Admin account
       - key: ADMIN_EMAIL
-        value: admin@earthvein.in
+        value: sundramyadav751@gmail.com
+
       - key: ADMIN_PASSWORD
-        sync: false            # at least 10 characters
+        sync: false
+
+      # Control Panel accounts
       - key: CONTROL_EMAIL
-        value: control@earthvein.in
+        value: sundramyadav751@gmail.com,yugnshsethi46@gmail.com
+
       - key: CONTROL_PASSWORD
         sync: false
+
+      # Disable public demo accounts for deployment security
       - key: SEED_DEMO
-        value: "true"          # demo customers with a public password; set to false for a real launch
+        value: "false"
+
+      # Google Sign-In Client ID
       - key: GOOGLE_CLIENT_ID
-        sync: false            # optional
+        sync: false
+
