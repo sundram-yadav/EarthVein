@@ -1,0 +1,78 @@
+{
+  "demand_model": {
+    "overall": {
+      "model_mae": 0.055050939958628316,
+      "persistence_mae": 0.07445295862841489,
+      "same_hour_yesterday_mae": 0.058158399317486786,
+      "same_hour_last_week_mae": 0.10221571820602378,
+      "r2": 0.825134499880704
+    },
+    "1-3 h ahead": {
+      "model_mae": 0.037135968963424706,
+      "persistence_mae": 0.03513529922108574,
+      "same_hour_last_week_mae": 0.10210643610186218
+    },
+    "4-12 h ahead": {
+      "model_mae": 0.05553543510198517,
+      "persistence_mae": 0.08395731695077897,
+      "same_hour_last_week_mae": 0.10282145594158901
+    },
+    "13-24 h ahead": {
+      "model_mae": 0.0625320619422293,
+      "persistence_mae": 0.08320817867819601,
+      "same_hour_last_week_mae": 0.1018071745709282
+    }
+  },
+  "wait_model": {
+    "model_mae_min": 1.6184470948595657,
+    "naive_mae_min": 1.6653561277361182,
+    "r2": 0.7425777633309968,
+    "share_of_rows_with_wait_over_5_min": 0.05374285714285714
+  },
+  "policy_evaluation": {
+    "nearest": {
+      "mean_wait_min": 2.643474725230141,
+      "p90_wait_min": 1.9188177186034658,
+      "share_wait_over_10_min": 0.03966666666666667,
+      "mean_travel_plus_wait_min": 15.646209406668408,
+      "stations_used": 28,
+      "assignment_cv": 0.4942464522437724
+    },
+    "least_loaded_now": {
+      "mean_wait_min": 0.1018583150352463,
+      "p90_wait_min": 0.00011685972704646855,
+      "share_wait_over_10_min": 0.0008333333333333334,
+      "mean_travel_plus_wait_min": 41.10461617679364,
+      "stations_used": 15,
+      "assignment_cv": 1.0654752460756656
+    },
+    "earthvein_model": {
+      "mean_wait_min": 0.20720285034286562,
+      "p90_wait_min": 0.21449334372677548,
+      "share_wait_over_10_min": 0.001,
+      "mean_travel_plus_wait_min": 13.502110767538376,
+      "stations_used": 28,
+      "assignment_cv": 0.5334466546275582
+    },
+    "improvement_vs_nearest": {
+      "mean_wait_reduction_pct": 92.1617237961363,
+      "travel_plus_wait_reduction_pct": 13.70362995535659
+    },
+    "requests": 6000
+  },
+  "meta": {
+    "trained_at": "2026-10-18T10:19:07+00:00",
+    "sklearn_version": "1.8.0",
+    "train_rows": 700000,
+    "test_rows": 175000,
+    "dataset": "UrbanEV (IntelligentSystemsLab/UrbanEV on GitHub), hourly occupancy of 275 zones, 2022-09-01 to 2023-02-28",
+    "dataset_zones": 275,
+    "dataset_hours": 4344,
+    "mean_occupancy_in_data": 0.2709557116031647,
+    "train_seconds": 37.8,
+    "assumptions": {
+      "mean_bay_hold_minutes": 40,
+      "queue_model": "M/M/c (Erlang C)"
+    }
+  }
+}
